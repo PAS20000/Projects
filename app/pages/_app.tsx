@@ -1,8 +1,5 @@
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 
-
-//const theme = extendTheme({ colors })
-
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>

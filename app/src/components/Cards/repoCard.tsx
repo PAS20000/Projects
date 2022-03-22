@@ -1,16 +1,18 @@
-import { Box, Container, Flex, Heading, Image, Link, Spinner, Tag, TagLabel, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Image, Link, Spinner, Tag, TagLabel, Text, toast, useColorModeValue, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IoIosRocket, IoMdStar } from 'react-icons/io'
+import { IoIosRocket } from 'react-icons/io'
 import { BiCodeAlt, BiImage } from 'react-icons/bi'
-import { ExternalLinkIcon } from "@chakra-ui/icons";
- 
-export default function RepoCard({ repository }) {
+import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
+
+
+
+export default function RepoCard({ repository }){
     const [statusDeploy, setStatusDeploy] = useState('')
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
-   
-
+    const toast = useToast()
+    
     useEffect(() => {
         const data = async () => {
             try {
@@ -22,12 +24,17 @@ export default function RepoCard({ repository }) {
                 setStars(stars.data.length)
                 setLoad(false)
             } catch (e) {
-                data()
+                setLoad(false)
+                toast({
+                    title:'Github Error',
+                    description:'Could not load information from github. Please reload the page',
+                    status:'error',
+                    isClosable:true,
+                })
             }
         }
         data()
     }, [])
-
 
     return(
         <Container as={'article'} boxShadow={'dark-lg'} p='5' mt='20'>
@@ -39,13 +46,13 @@ export default function RepoCard({ repository }) {
                     <Tag textTransform={'capitalize'} variant={'outline'} colorScheme={statusDeploy === 'success' ? 'whatsapp':'red'} mt={'1'}>
                         <IoIosRocket />
                         <TagLabel>
-                        Deploy {statusDeploy}
+                        Deploy {statusDeploy ? statusDeploy:'Pending'}
                         </TagLabel>
                    </Tag>
                    <Tag textTransform={'capitalize'} variant={'outline'} colorScheme={'yellow'} mt={'1'} ml={'1'}>
-                        <IoMdStar />
-                        <TagLabel>
-                            stars: {stars}
+                    <StarIcon />
+                        <TagLabel mt={'1'} ml={'1'}>
+                            {stars}
                         </TagLabel>
                    </Tag>
                </Text>
@@ -54,7 +61,7 @@ export default function RepoCard({ repository }) {
             }
                </Flex>
             </Heading>
-           <Image src={`${repository?.homepage}/img/banner.png`} alt={`banner-${repository?.name}`} />
+           <Image src={`${repository.homepage ? repository.homepage:''}/img/banner.png`} alt={`banner-${repository?.name}`} w={'600px'} h={'300px'}/>
            <Flex mt={'2'} justify={'center'}>
                <Link href={`${repository?.homepage}`} target='_blank' _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
                    <Tag colorScheme={'telegram'}>
