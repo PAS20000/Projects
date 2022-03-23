@@ -130,11 +130,7 @@ export default function Home({ repos }) {
             <Box as={'main'}>
                 <SimpleGrid columns={{base:1, md:2, xl:3}} spacing={2}>
                     {repos.map(repo  =>
-                    <>
                         <RepoCard repository={repo} key={repo.id}/>
-                        <RepoCard repository={repo} key={repo.id}/>
-                        <RepoCard repository={repo} key={repo.id}/>
-                    </>
                     )}
                 </SimpleGrid>
                 <SimpleGrid columns={{base:1, md:3, xl:3}} spacing={3} mt={'20'}>

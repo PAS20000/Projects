@@ -12,7 +12,6 @@ export default function RepoCard({ repository }){
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
     const toast = useToast()
-    
     useEffect(() => {
         const data = async () => {
             try {
@@ -20,17 +19,18 @@ export default function RepoCard({ repository }){
                 const urls = statusDeploy.data.map(url => url.statuses_url)
                 const verify = await axios(`${urls[0]}`)
                 const stars = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/stargazers`)
-                setStatusDeploy(verify.data[0].state)
-                setStars(stars.data.length)
-                setLoad(false)
-            } catch (e) {
-                setLoad(false)
-                toast({
+                if(!stars){
+                return toast({
                     title:'Github Error',
                     description:'Could not load information from github. Please reload the page',
                     status:'error',
                     isClosable:true,
-                })
+                })}
+                setStars(stars.data.length)
+                setStatusDeploy(verify.data[0].state)
+                setLoad(false)
+            } catch (e) {
+                setLoad(false)
             }
         }
         data()
@@ -61,7 +61,8 @@ export default function RepoCard({ repository }){
             }
                </Flex>
             </Heading>
-           <Image src={`${repository.homepage ? repository.homepage:''}/img/banner.png`} alt={`banner-${repository?.name}`} w={'600px'} h={'300px'}/>
+           <Image src={`${repository.homepage ? repository.homepage:''}/img/${repository.homepage ? 'banner.png':'build.jpg'}`} alt={`banner-${repository?.name}`} 
+           w={'600px'} h={'300px'}/>
            <Flex mt={'2'} justify={'center'}>
                <Link href={`${repository?.homepage}`} target='_blank' _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
                    <Tag colorScheme={'telegram'}>
@@ -73,7 +74,8 @@ export default function RepoCard({ repository }){
                         Source <BiCodeAlt size='20px' />
                     </Tag>
                 </Link>
-                <Link href={`${repository?.homepage}/img/banner.png`} target='_blank' ml={'2'}  _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
+                <Link href={`${repository?.homepage ? `${repository.homepage}/img/banner.png`:'/img/build.jpg'}`} target='_blank' ml={'2'}  
+                _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
                     <Tag colorScheme={'green'} >
                         Picture <BiImage size='20px' />
                     </Tag>
