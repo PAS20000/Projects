@@ -14,7 +14,7 @@ export default function GridCard({ props, Title }) {
                 <Grid p={'5'}>
                     {props.map((prop, index) =>
                         <Link href={prop.href} isExternal _hover={{outline:'none'}} key={index} mt={'2'}>
-                            <Box borderRadius={'5'} p={'2'} boxShadow={'dark-lg'}  _hover={{transition:'0.5s', borderRadius:'20'}} 
+                            <Box borderRadius={'5'} p={'2'} boxShadow={'dark-lg'}  _hover={{transition:'0.4s', borderRadius:'25'}} 
                             bg={useColorModeValue(`${prop.bgLight}`,`${prop.bgDark}`)}>
                                 <Square p={'2'} color={'white'}>
                                     {prop.icon}

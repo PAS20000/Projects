@@ -1,4 +1,4 @@
-import { Avatar,Button, Switch, Flex, Container, Box, useBoolean, useToast, useColorMode, color, useColorModeValue, ButtonGroup } from '@chakra-ui/react'
+import { Avatar,Button, Switch, Flex, Container, useToast, useColorMode, useColorModeValue, ButtonGroup } from '@chakra-ui/react'
 import { IoMdMoon, IoMdSunny } from 'react-icons/io'
 
 export default function Nav() {

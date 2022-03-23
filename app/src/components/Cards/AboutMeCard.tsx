@@ -8,7 +8,7 @@ export default function AboutMeCard() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return(
-        <Container mb={'20'}  p={'5'} boxShadow={'dark-lg'}>
+        <Container mb={'15'}  p={'5'} boxShadow={'dark-lg'}>
              <Heading textAlign={'center'} mb={'3'} display={'flex'} justifyContent={'center'} alignItems={'center'} color={useColorModeValue('#2E2EFF','cyan.300')}>
                 <Avatar src="https://avatars.githubusercontent.com/u/83708869?v=4" size={'xl'} mt={'5'} />
                 <Text ml={'3'} mt={'3'} >
@@ -29,7 +29,7 @@ export default function AboutMeCard() {
                     <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
                     <ModalOverlay />
                     <ModalContent>
-                    <ModalHeader color={'#2E2EFF'}>
+                    <ModalHeader color={useColorModeValue('#2E2EFF','cyan.300')}>
                         CV language
                     </ModalHeader>
                     <ModalCloseButton />
