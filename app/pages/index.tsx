@@ -1,11 +1,12 @@
 import { axiosConfig } from '../src/utils/axiosConfig'
 import { GetStaticProps } from 'next'
-import { SimpleGrid } from '@chakra-ui/react'
+import { Box, Container, SimpleGrid } from '@chakra-ui/react'
 import Nav from '../src/components/Nav/Nav'
 import RepoCard from '../src/components/Cards/RepoCard'
 import Footer from '../src/components/Footer/Footer'
 import Contact from '../src/components/Contact/Contact'
 import AboutMeCard from '../src/components/Cards/AboutMeCard'
+import Skills from '../src/components/Skills/Skills'
 
 
 
@@ -126,15 +127,18 @@ export default function Home({ repos }) {
             <header>
                 <Nav />
             </header>
-            <main>
+            <Box as={'main'}>
                 <SimpleGrid columns={3} spacing={3}>
                     {repos.map(repo  =>
                         <RepoCard repository={repo} key={repo.id}/>
                     )}
                 </SimpleGrid>
-                <AboutMeCard/>
-                <Contact/>
-            </main >
+                <SimpleGrid columns={3} spacing={3} mt={'20'}>
+                    <Contact />
+                    <AboutMeCard />
+                    <Skills/>
+                </SimpleGrid>
+            </Box >
             <footer>
                 <Footer/>
             </footer>

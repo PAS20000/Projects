@@ -39,7 +39,7 @@ export default function RepoCard({ repository }){
     return(
         <Container as={'article'} boxShadow={'dark-lg'} p='5' mt='20'>
             <Heading as={'h2'} padding='3' fontSize={'2xl'} >
-                <Flex flexDir={'column'} align={'center'}>
+                <Flex flexDir={'column'} align={'center'} color={useColorModeValue('#2E2EFF','cyan.300')}>
                     {repository?.name}
                 {!load ? 
                 <Text >
