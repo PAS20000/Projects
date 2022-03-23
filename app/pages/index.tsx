@@ -128,7 +128,7 @@ export default function Home({ repos }) {
                 <Nav />
             </header>
             <Box as={'main'}>
-                <SimpleGrid columns={{base:1, md:3, xl:3}} spacing={2}>
+                <SimpleGrid columns={{base:1, md:2, xl:3}} spacing={2}>
                     {repos.map(repo  =>
                     <>
                         <RepoCard repository={repo} key={repo.id}/>

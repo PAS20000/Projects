@@ -26,7 +26,7 @@ export default function Nav() {
                 }
             }>
                 <Avatar src={'https://avatars.githubusercontent.com/u/83708869?v=4'} />
-                {width > 375 && 
+                {width > 500 && 
                 <Text ml={'1'} fontSize={{base:'12px', md:'16px'}}>
                     @PAS
                 </Text>}
