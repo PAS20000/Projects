@@ -12,14 +12,18 @@ export default function RepoCard({ repository }){
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
     const toast = useToast()
-    
+    const header =   {
+        headers:{
+        'Content-Type': 'application/json'
+    }
+}
     useEffect(() => {
         const data = async () => {
             try {
-                const statusDeploy = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/deployments`)
+                const statusDeploy = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/deployments`, header)
                 const urls = statusDeploy.data.map(url => url.statuses_url)
-                const verify = await axios(`${urls[0]}`)
-                const stars = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/stargazers`)
+                const verify = await axios(`${urls[0]}`, header)
+                const stars = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/stargazers`, header)
                 if(!stars){
                 return toast({
                     title:'Github Error',

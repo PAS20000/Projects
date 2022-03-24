@@ -1,4 +1,3 @@
-import { axiosConfig } from '../src/utils/axiosConfig'
 import { GetStaticProps } from 'next'
 import { Box, Button, SimpleGrid, Tag, useColorModeValue } from '@chakra-ui/react'
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'
@@ -11,10 +10,15 @@ import Skills from '../src/components/Skills/Skills'
 import useStaticPagination from '../src/hooks/useStaticPagination'
 import useResponsive from '../src/hooks/useResponsive'
 import NextHead from '../src/components/NextHead/NextHead'
+import axios from 'axios'
 
 
     export const getStaticProps:GetStaticProps = async () => {
-        const response = await axiosConfig('PAS19/repos')
+        const response = await axios.get('https://api.github.com/users/PAS19/repos', {
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
         return {
             props:{
                 repos:response.data
