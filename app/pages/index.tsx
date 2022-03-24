@@ -143,7 +143,7 @@ export default function Home({ repos }){
         <Box as={'div'}>
             <NextHead title={'@PAS | HOME'} 
             description={"I work in the area of web and mobile development, acquiring some of my ability to work as a freelancer. Extremely motivated, constantly skills development and professional growth."}
-            robots={true} googleBot={true} canonical={true}/>
+            robots={true} googleBot={true} canonical={false}/>
             <Box as={'header'}>
                 <Nav />
             </Box>

@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Image, Link, Spinner, Tag, TagLabel, Text, toast, useColorModeValue, useToast } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Image, Link, Spinner, Tag, TagLabel, Text, useColorModeValue, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IoIosRocket } from 'react-icons/io'
