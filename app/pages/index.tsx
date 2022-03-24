@@ -19,7 +19,7 @@ import NextHead from '../src/components/NextHead/NextHead'
             props:{
                 repos:response.data
             },
-            revalidate:60 * 60 * 12 //12h
+            revalidate:20
         }
     }
 
