@@ -28,7 +28,7 @@ import axios from 'axios'
     }
 
 
-export default function Home({ repos }){
+export default function Home({ repos }): JSX.Element{
     const { width } = useResponsive()
     const { backPage, Page, nextPage, Start, FinalTv, FinalDesktop, FinalCell } = useStaticPagination(width, 3, 2, 1)
     

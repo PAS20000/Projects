@@ -7,7 +7,7 @@ import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 
 
 
-export default function RepoCard({ repository }){
+export default function RepoCard({ repository }): JSX.Element{
     const [statusDeploy, setStatusDeploy] = useState('')
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
@@ -20,10 +20,10 @@ export default function RepoCard({ repository }){
     useEffect(() => {
         const data = async () => {
             try {
-                const statusDeploy = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/deployments`, header)
+                const statusDeploy = await axios.get(`https://api.github.com/repos/PAS19/${repository?.name}/deployments`, header)
                 const urls = statusDeploy.data.map(url => url.statuses_url)
-                const verify = await axios(`${urls[0]}`, header)
-                const stars = await axios(`https://api.github.com/repos/PAS19/${repository?.name}/stargazers`, header)
+                const verify = await axios.get(`${urls[0]}`, header)
+                const stars = await axios.get(`https://api.github.com/repos/PAS19/${repository?.name}/stargazers`, header)
                 if(!stars){
                 return toast({
                     title:'Github Error',
