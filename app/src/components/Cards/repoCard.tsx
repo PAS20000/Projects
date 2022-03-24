@@ -1,8 +1,8 @@
 import { Box, Container, Flex, Heading, Image, Link, Spinner, Tag, TagLabel, Text, useColorModeValue, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { IoIosRocket } from 'react-icons/io'
-import { BiCodeAlt, BiImage } from 'react-icons/bi'
+import { IoIosRocket } from 'react-icons/io';
+import { BiCodeAlt, BiImage } from 'react-icons/bi';
 import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 
 

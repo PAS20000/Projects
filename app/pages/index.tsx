@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next'
 import { Box, Button, SimpleGrid, Tag, useColorModeValue } from '@chakra-ui/react'
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 import Nav from '../src/components/Nav/Nav'
-import RepoCard from '../src/components/Cards/RepoCard'
 import Footer from '../src/components/Footer/Footer'
 import Contact from '../src/components/Contact/Contact'
 import AboutMeCard from '../src/components/Cards/AboutMeCard'
@@ -10,6 +9,7 @@ import Skills from '../src/components/Skills/Skills'
 import useStaticPagination from '../src/hooks/useStaticPagination'
 import useResponsive from '../src/hooks/useResponsive'
 import NextHead from '../src/components/NextHead/NextHead'
+import RepoCard from '../src/components/Cards/RepoCard'
 import axios from 'axios'
 
 
@@ -54,8 +54,8 @@ export default function Home({ repos }): JSX.Element{
             </Box>
             <Box as={'main'}>
                 <SimpleGrid columns={{base:1, md:2, xl:3}} spacing={2}>
-                    {repos.slice(Start, Final()).map(repo  =>
-                        <RepoCard repository={repo} key={repo.id} />
+                    {repos.slice(Start, Final()).map((repo, index)  =>
+                        <RepoCard repository={repo} key={repo.id ? repo.id:index} />
                     )}
                 </SimpleGrid>
                 <Box display={'flex'} justifyContent={'center'} mt={3}>
