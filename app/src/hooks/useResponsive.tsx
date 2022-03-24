@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
 export default function useResponsive(){
-    const [width, setWidth] = useState(Number)
-    const [height, setHeight] = useState(Number)
+    const [width, setWidth] = useState(0)
+    const [height, setHeight] = useState(0)
     
     useEffect(() => {
         const w = window.innerWidth
