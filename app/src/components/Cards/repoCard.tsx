@@ -12,6 +12,7 @@ export default function RepoCard({ repository }){
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
     const toast = useToast()
+    
     useEffect(() => {
         const data = async () => {
             try {
