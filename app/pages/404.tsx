@@ -1,8 +1,10 @@
 import { Box, Heading, Text, Button, Link, useColorModeValue } from '@chakra-ui/react';
+import NextHead from '../src/components/NextHead/NextHead';
 
 export default function Page404() {
   return (
     <Box textAlign="center" py={10} px={6}>
+      <NextHead title={'Error 404'} description={'...'} robots={false} googleBot={false} canonical={false}/>
       <Heading
         display="inline-block"
         as="h2"

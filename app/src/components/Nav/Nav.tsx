@@ -1,4 +1,5 @@
 import { Avatar,Button, Switch, Flex, Container, useToast, useColorMode, useColorModeValue, ButtonGroup, Text } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import { IoMdMoon, IoMdSunny } from 'react-icons/io'
 import useResponsive from '../../hooks/useResponsive'
 
@@ -13,6 +14,11 @@ export default function Nav() {
     const AboutMeScroll = () => {
         window.scroll(0, height * 1.4)
     }
+
+    useEffect(() => {
+        console.info('This site uses window.innerWidth and window.innerHeight for responsiveness of some functionality, please refresh the page if in inspect element.')
+    }, [])
+
     return(
         <Flex as={'nav'} p={'15px'}  w={'full'} bg={useColorModeValue('#2E2EFF','gray.900')}  justify={'space-between'} position={'fixed'} zIndex={'2'} >
             <Button variant={'outline'} color={useColorModeValue('white','cyan.300')}  _hover={{opacity:'0.5'}}

@@ -1,9 +1,11 @@
 import { Box, Heading, Text, Button, Link, useColorModeValue, Tag, TagLabel } from '@chakra-ui/react';
 import { IoIosRocket } from 'react-icons/io';
+import NextHead from '../src/components/NextHead/NextHead';
 
 export default function Null() {
   return (
     <Box textAlign="center" py={10} px={6}>
+      <NextHead title={'Deploy Pending'} description={'...'} robots={false} googleBot={false} canonical={false}/>
       <Heading
         display="inline-block"
         as="h2"

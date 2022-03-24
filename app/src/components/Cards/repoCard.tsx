@@ -37,9 +37,9 @@ export default function RepoCard({ repository }){
     }, [])
 
     return(
-        <Container as={'article'} boxShadow={'dark-lg'} p='5' mt='20'>
+        <Container as={'article'} boxShadow={'dark-lg'} p='5' mt='20' className={'Show'}>
             <Heading as={'h2'} padding='3' fontSize={'2xl'} >
-                <Flex flexDir={'column'} align={'center'} color={useColorModeValue('#2E2EFF','cyan.300')}>
+                <Flex flexDir={'column'} align={'center'} color={useColorModeValue('#2E2EFF','cyan.300')} >
                     {repository?.name}
                 {!load ? 
                 <Text >
@@ -66,7 +66,7 @@ export default function RepoCard({ repository }){
            <Flex mt={'2'} justify={'center'}>
                <Link href={`${repository?.homepage}`} target='_blank' _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
                    <Tag colorScheme={'telegram'}>
-                       Homepage<ExternalLinkIcon mx={'2px'} />
+                       Homepage <ExternalLinkIcon mx={'2px'} />
                    </Tag>
                 </Link>
                 <Link href={repository?.html_url} target='_blank' ml={'2'}  _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>

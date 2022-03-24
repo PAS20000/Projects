@@ -13,7 +13,7 @@ export default function GridCard({ props, Title }) {
                 <Divider w={'auto'}/>
                 <Grid p={'5'}>
                     {props.map((prop, index) =>
-                        <Link href={prop.href} isExternal _hover={{outline:'none'}} key={index} mt={'2'}>
+                        <Link href={prop.href} isExternal _hover={{outline:'none'}} key={index} mt={'4'} _focus={{outline:'none'}}>
                             <Box borderRadius={'5'} p={'2'} boxShadow={'dark-lg'}  _hover={{transition:'0.4s', borderRadius:'25'}} 
                             bg={useColorModeValue(`${prop.bgLight}`,`${prop.bgDark}`)}>
                                 <Square p={'2'} color={'white'}>
