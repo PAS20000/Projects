@@ -15,10 +15,7 @@ module.exports = {
             },{
                 key:'x-robots-tag',
                 value:'all',
-            }, {
-                key:'x-robots-tag',
-                value:'*',
-            },
+            }
             ]
         }]
     }

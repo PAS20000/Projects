@@ -27,14 +27,15 @@ import NextHead from '../src/components/NextHead/NextHead'
 export default function Home({ repos }){
     const { width } = useResponsive()
     const { backPage, Page, nextPage, Start, FinalTv, FinalDesktop, FinalCell } = useStaticPagination(width, 3, 2, 1)
-    const Final = () => {
-        if(width > 500 && width <= 1300){
+    
+    function Final(): number {
+        if (width > 500 && width <= 1300) {
             return FinalDesktop
         }
-        if(width > 1300){
+        if (width > 1300) {
             return FinalTv
         }
-        if(width < 500){
+        if (width < 500) {
             return FinalCell
         }
     }
