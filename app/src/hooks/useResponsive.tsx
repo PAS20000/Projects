@@ -11,5 +11,5 @@ export default function useResponsive(){
         setHeight(h)
     },[])
 
-    return{width, height}
+    return{ width, height }
 }
