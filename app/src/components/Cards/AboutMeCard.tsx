@@ -23,7 +23,7 @@ export default function AboutMeCard() {
                         ability to work as a freelancer. Extremely motivated, constantly
                         skills development and professional growth.
                     </Text>
-                    <Button variant={'outline'} colorScheme={useColorModeValue('purple','twitter')} textTransform={'uppercase'} onClick={onOpen}>
+                    <Button variant={'outline'} colorScheme={useColorModeValue('purple','twitter')} textTransform={'uppercase'} onClick={onOpen} id='aboutMe'>
                         Download CV
                     </Button>
                     <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
