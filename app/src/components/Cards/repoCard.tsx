@@ -6,12 +6,12 @@ import { BiCodeAlt, BiImage } from 'react-icons/bi';
 import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 import { axiosConfig } from "../../utils/axiosConfig";
 
-interface Repo {
+type Repo = {
     repository: {
-        name:string | null | undefined
-        homepage:string | null | undefined
-        html_url:string | null | undefined
-        description:string | null | undefined
+        name:string
+        homepage:string | null 
+        html_url:string
+        description:string | null 
     }
     
 }
