@@ -8,9 +8,9 @@ import { axiosConfig } from "../../utils/axiosConfig";
 
 interface Repo {
     repository: {
-        name:String
+        name:String | null | undefined
         homepage:String | null | undefined
-        html_url:string
+        html_url:string | null | undefined
         description:String | null | undefined
     }
     
