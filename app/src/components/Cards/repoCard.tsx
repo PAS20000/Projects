@@ -9,14 +9,14 @@ import { axiosConfig } from "../../utils/axiosConfig";
 interface Repo {
     repository: {
         name:String
-        homepage:String
+        homepage:String | null
         html_url:string
-        description:String
+        description:String | null
     }
     
 }
 
-export default function RepoCard({ repository }: Repo) {
+export default function RepoCard({ repository }:Repo) {
     const [statusDeploy, setStatusDeploy] = useState('')
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
