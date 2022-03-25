@@ -6,7 +6,7 @@ import { BiCodeAlt, BiImage } from 'react-icons/bi';
 import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 import { axiosConfig } from "../../utils/axiosConfig";
 
-type Repo = {
+/*type Repo = {
     repository:{
         allow_forking: boolean
         archive_url: string
@@ -93,9 +93,9 @@ type Repo = {
         watchers_count: number
     }
     
-}
+}*/
 
-export default function RepoCard({ repository }:Repo) {
+export default function RepoCard({ repository }) {
     const [statusDeploy, setStatusDeploy] = useState('')
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
