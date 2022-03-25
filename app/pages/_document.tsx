@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
 
@@ -6,10 +7,21 @@ export default class Document extends NextDocument {
     return (
       <Html lang='en'>
         <Head />
-        <body>
+        <Box as={'body'}  css={{
+        '&::-webkit-scrollbar':{
+          width: '6px',
+        },
+        '&::-webkit-scrollbar-track': {
+          width: '6px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background:'#2E2EFF',
+          borderRadius: '24px',
+        }
+        }}>
             <Main />
             <NextScript />
-        </body>
+        </Box>
       </Html>
     )
   }
