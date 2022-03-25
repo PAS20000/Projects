@@ -6,7 +6,7 @@ import { BiCodeAlt, BiImage } from 'react-icons/bi';
 import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
 import { axiosConfig } from "../../utils/axiosConfig";
 
-/*type Repo = {
+type Repo = {
     repository:{
         allow_forking: boolean
         archive_url: string
@@ -93,11 +93,54 @@ import { axiosConfig } from "../../utils/axiosConfig";
         watchers_count: number
     }
     
-}*/
+}
 
-export default function RepoCard({ repository }) {
-    const [statusDeploy, setStatusDeploy] = useState('')
-    const [stars, setStars] = useState(0)
+type Status = {
+        url: string
+        id: number,
+        node_id: string
+        task: string
+        original_environment: string
+        environment: string
+        description: string | null
+        created_at: string
+        updated_at: string
+        statuses_url: string
+        repository_url: string
+        creator: {
+          login: string
+          id: number,
+          node_id: string
+          avatar_url: string
+          gravatar_id: string | null,
+          url: string
+          html_url:string
+          followers_url: string
+          following_url:string
+          gists_url: string
+          starred_url: string
+          subscriptions_url:string
+          organizations_url:string
+          repos_url: string
+          events_url: string
+          received_events_url: string
+          type:string
+          site_admin: boolean
+        },
+        sha:string
+        ref:string
+        payload: {
+          
+        },
+        transient_environment: boolean
+        production_environment: boolean
+        performed_via_github_app: any
+}
+
+
+export default function RepoCard({ repository }: Repo) {
+    const [statusDeploy, setStatusDeploy] = useState<Array<Status> | Object>([])
+    const [stars, setStars] = useState<Number>(0)
     const [load, setLoad] = useState(true)
     const toast = useToast()
     const header =   {

@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "next.config.js", "pages/_document.tsx", "src/components/Cards/RepoCard.jsx"  ],
+, "next.config.js", "pages/_document.tsx", "src/components/Cards/RepoCard.tsx"  ],
   "exclude": [
     "node_modules"
   ]
