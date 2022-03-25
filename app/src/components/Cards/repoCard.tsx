@@ -9,9 +9,9 @@ import { axiosConfig } from "../../utils/axiosConfig";
 interface Repo {
     repository: {
         name:String
-        homepage:String | null
+        homepage:String | null | undefined
         html_url:string
-        description:String | null
+        description:String | null | undefined
     }
     
 }
@@ -55,7 +55,7 @@ export default function RepoCard({ repository }:Repo) {
         <Container as={'article'} boxShadow={'dark-lg'} p='5' mt='20' className={'Show'}>
             <Heading as={'h2'} padding='3' fontSize={'2xl'} >
                 <Flex flexDir={'column'} align={'center'} color={useColorModeValue('#2E2EFF','cyan.300')} >
-                    {repository?.name}
+                    {repository.name}
                 {!load ? 
                 <Text >
                     <Tag textTransform={'capitalize'} variant={'outline'} colorScheme={statusDeploy === 'success' ? 'whatsapp':'red'} mt={'1'}>
@@ -76,7 +76,7 @@ export default function RepoCard({ repository }:Repo) {
             }
                </Flex>
             </Heading>
-           <Image src={`${repository.homepage ? repository.homepage:''}/img/${repository.homepage ? 'banner.png':'build.jpg'}`} alt={`banner-${repository?.name}`} 
+           <Image src={`${repository.homepage ? repository.homepage:''}/img/${repository.homepage ? 'banner.png':'build.jpg'}`} alt={`banner-${repository.name}`} 
            w={'600px'} h={'300px'}/>
            <Flex mt={'2'} justify={'center'}>
                <Link href={`${repository?.homepage}`} target='_blank' _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
