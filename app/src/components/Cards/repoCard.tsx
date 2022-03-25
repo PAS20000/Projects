@@ -4,10 +4,19 @@ import { useEffect, useState } from "react";
 import { IoIosRocket } from 'react-icons/io';
 import { BiCodeAlt, BiImage } from 'react-icons/bi';
 import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
+import { axiosConfig } from "../../utils/axiosConfig";
 
+interface Repo {
+    repository: {
+        name:String
+        homepage:String
+        html_url:string
+        description:String
+    }
+    
+}
 
-
-export default function RepoCard({ repository }): JSX.Element{
+export default function RepoCard({ repository }: Repo) {
     const [statusDeploy, setStatusDeploy] = useState('')
     const [stars, setStars] = useState(0)
     const [load, setLoad] = useState(true)
@@ -17,13 +26,14 @@ export default function RepoCard({ repository }): JSX.Element{
         'Content-Type': 'application/json'
     }
 }
+
     useEffect(() => {
         const data = async () => {
             try {
-                const statusDeploy = await axios.get(`https://api.github.com/repos/PAS19/${repository?.name}/deployments`, header)
+                const statusDeploy = await axiosConfig(`repos/PAS19/${repository?.name}/deployments`)
                 const urls = statusDeploy.data.map(url => url.statuses_url)
-                const verify = await axios.get(`${urls[0]}`, header)
-                const stars = await axios.get(`https://api.github.com/repos/PAS19/${repository?.name}/stargazers`, header)
+                const verify = await axios(`${urls[0]}`, header)
+                const stars = await axiosConfig(`repos/PAS19/${repository?.name}/stargazers`)
                 if(!stars){
                 return toast({
                     title:'Github Error',
@@ -74,7 +84,7 @@ export default function RepoCard({ repository }): JSX.Element{
                        Homepage <ExternalLinkIcon mx={'2px'} />
                    </Tag>
                 </Link>
-                <Link href={repository?.html_url} target='_blank' ml={'2'}  _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
+                <Link href={repository.html_url} target='_blank' ml={'2'}  _hover={{outline:'none', opacity:'0.6'}} _focus={{outline:'none'}}>
                     <Tag colorScheme={'orange'} >
                         Source <BiCodeAlt size='20px' />
                     </Tag>

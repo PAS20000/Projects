@@ -10,15 +10,11 @@ import useStaticPagination from '../src/hooks/useStaticPagination'
 import useResponsive from '../src/hooks/useResponsive'
 import NextHead from '../src/components/NextHead/NextHead'
 import RepoCard from '../src/components/Cards/RepoCard'
-import axios from 'axios'
+import { axiosConfig } from '../src/utils/axiosConfig'
 
 
     export const getStaticProps:GetStaticProps = async () => {
-        const response = await axios.get('https://api.github.com/users/PAS19/repos', {
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
+        const response = await axiosConfig('users/PAS19/repos')
         return {
             props:{
                 repos:response.data
@@ -28,7 +24,7 @@ import axios from 'axios'
     }
 
 
-export default function Home({ repos }): JSX.Element{
+export default function Home({ repos }: any) {
     const { width } = useResponsive()
     const { backPage, Page, nextPage, Start, FinalTv, FinalDesktop, FinalCell } = useStaticPagination(width, 3, 2, 1)
     
@@ -54,8 +50,8 @@ export default function Home({ repos }): JSX.Element{
             </Box>
             <Box as={'main'}>
                 <SimpleGrid columns={{base:1, md:2, xl:3}} spacing={2}>
-                    {repos.slice(Start, Final()).map((repo, index)  =>
-                        <RepoCard repository={repo} key={repo.id ? repo.id:index} />
+                    {repos.slice(Start, Final()).map( repo  =>
+                        <RepoCard repository={repo} key={repo.id} />
                     )}
                 </SimpleGrid>
                 <Box display={'flex'} justifyContent={'center'} mt={3}>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosConfig = axios.create({
-    baseURL:'https://api.github.com/users/',
+    baseURL:'https://api.github.com/',
     headers:{
         'Content-Type': 'application/json',
     }
