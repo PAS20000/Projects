@@ -139,7 +139,7 @@ type Status = {
 
 
 export default function RepoCard({ repository }: Repo) {
-    const [statusDeploy, setStatusDeploy] = useState<Array<Status> | Object>([])
+    const [statusDeploy, setStatusDeploy] = useState<string>('')
     const [stars, setStars] = useState<Number>(0)
     const [load, setLoad] = useState(true)
     const toast = useToast()
