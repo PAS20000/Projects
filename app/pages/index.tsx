@@ -13,6 +13,18 @@ import RepoCard from '../src/components/Cards/RepoCard'
 import { axiosConfig } from '../src/utils/axiosConfig'
 
 
+
+interface Repos {
+    repos: [{
+        id:number
+        name:string | null | undefined
+        homepage:string | null | undefined
+        html_url:string | null | undefined
+        description:string | null | undefined
+    }]
+    
+}
+
     export const getStaticProps:GetStaticProps = async () => {
         const response = await axiosConfig('users/PAS19/repos')
         return {
@@ -24,7 +36,7 @@ import { axiosConfig } from '../src/utils/axiosConfig'
     }
 
 
-export default function Home({ repos }: any) {
+export default function Home({ repos }: Repos) {
     const { width } = useResponsive()
     const { backPage, Page, nextPage, Start, FinalTv, FinalDesktop, FinalCell } = useStaticPagination(width, 3, 2, 1)
     
@@ -39,7 +51,7 @@ export default function Home({ repos }: any) {
             return FinalCell
         }
     }
-
+    console.log(repos)
     return(
         <Box as={'div'}>
             <NextHead title={'@PAS | HOME'} 
@@ -50,7 +62,7 @@ export default function Home({ repos }: any) {
             </Box>
             <Box as={'main'}>
                 <SimpleGrid columns={{base:1, md:2, xl:3}} spacing={2}>
-                    {repos.slice(Start, Final()).map( repo  =>
+                    {repos.slice(Start, Final()).map( (repo) =>
                         <RepoCard repository={repo} key={repo.id} />
                     )}
                 </SimpleGrid>
