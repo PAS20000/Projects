@@ -152,10 +152,10 @@ export default function RepoCard({ repository }: Repo) {
     useEffect(() => {
         const data = async () => {
             try {
-                const statusDeploy = await axiosConfig(`repos/PAS19/${repository?.name}/deployments`)
+                const statusDeploy = await axiosConfig(`repos/PS200000/${repository?.name}/deployments`)
                 const urls = statusDeploy.data.map(url => url.statuses_url)
                 const verify = await axios(`${urls[0]}`, header)
-                const stars = await axiosConfig(`repos/PAS19/${repository?.name}/stargazers`)
+                const stars = await axiosConfig(`repos/PS200000/${repository?.name}/stargazers`)
                 if(!stars){
                 return toast({
                     title:'Github Error',

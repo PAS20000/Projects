@@ -105,7 +105,7 @@ type Repos = {
 
 
     export const getStaticProps:GetStaticProps = async () => {
-        const response = await axiosConfig('users/PAS19/repos')
+        const response = await axiosConfig('users/PS200000/repos')
         return {
             props:{
                 repos:response.data
