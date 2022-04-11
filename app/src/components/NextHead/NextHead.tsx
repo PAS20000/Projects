@@ -19,8 +19,8 @@ const NextHead = ({ title, description, robots, googleBot, canonical }) => {
                 <meta property='og:image' content='https://projects-red.vercel.app/img/banner.png' key='imageog'/>
                 <meta property='og:image:secure_url' content='https://projects-red.vercel.app/img/banner.png' key='imageogSecure'/>
                 <meta property='og:image:type' content='image/png' key='imageogpng'/>
-                <meta property='og:image:width' content='1300' key='imageogpngwidth'/>
-                <meta property='og:image:height' content='630' key='imageogpngheight'/> 
+                <meta property='og:image:width' content='600' key='imageogpngwidth'/>
+                <meta property='og:image:height' content='300' key='imageogpngheight'/> 
                 <meta name='application-name' content='Projects' key='appname'/>
                 <meta name='description' content={description} key='description'/>
                 <meta name='robots' content={robots} key='robots'/>
