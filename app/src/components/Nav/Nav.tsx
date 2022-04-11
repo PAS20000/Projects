@@ -24,7 +24,7 @@ export default function Nav() {
             <Button variant={'outline'} color={useColorModeValue('white','cyan.300')}  _hover={{opacity:'0.5'}}
             onClick={() => {
                     toast({
-                        title:'@PS20000 it says: ',
+                        title:'@Pedro it says: ',
                         description:'Hellow, i am a full stack developer',
                         status:'info',
                         isClosable:true,
@@ -35,7 +35,7 @@ export default function Nav() {
                 <Avatar src={'https://avatars.githubusercontent.com/u/83708869?v=4'} />
                 {width > 500 && 
                 <Text ml={'1'} fontSize={{base:'12px', md:'16px'}}>
-                    @PS20000
+                    @Pedro
                 </Text>}
             </Button>
             <Container textAlign={'center'}>
