@@ -124,7 +124,7 @@ export default function Home({ repos }: Repos) {
             return FinalDesktop
         }
         if (width > 1300) {
-            alert(`Start: ${Start} FinalTv: ${FinalTv}`)
+            //alert(`Start: ${Start} FinalTv: ${FinalTv}`)
             return FinalTv 
         }
         if (width < 500) {
