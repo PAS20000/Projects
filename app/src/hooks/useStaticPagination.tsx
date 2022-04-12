@@ -9,24 +9,26 @@ export default function useStaticPagination(width: number, finalTv: number, fina
     const [FinalCell, setFinalCell] = useState(finalCell)
 
     const nextPage = () => {
-        if(width > 1300){
-            setStart(Start + finalTv), setFinalTv(FinalTv + finalTv), setPage(Page + 1)
-        }if(width > 500){
+        if(width > 500 && width < 1300){
             setStart(Start + finalDesktop), setFinalDesktop(FinalDesktop + finalDesktop), setPage(Page + 1)
         } 
-        else {
+        if(width < 500) {
             setStart(Start + finalCell), setFinalCell(FinalCell + finalCell), setPage(Page + 1)
-        }
-    }
-    const backPage = () => { 
-        if(width > 1300){
-            setStart(Start - finalTv), setFinalTv(FinalTv - finalTv), setPage(Page - 1)
-        }
-        if(width > 500){
-            setStart(Start - finalDesktop), setFinalDesktop(FinalDesktop - finalDesktop), setPage(Page - 1)
         } 
         else {
+            setStart(Start + finalTv), setFinalTv(FinalTv + finalTv), setPage(Page + 1)
+        }
+    }
+
+    const backPage = () => { 
+        if(width > 500 && width < 1300){
+            setStart(Start - finalDesktop), setFinalDesktop(FinalDesktop - finalDesktop), setPage(Page - 1)
+        } 
+        if(width < 500) {
             setStart(Start - finalCell), setFinalCell(FinalCell - finalCell), setPage(Page - 1)
+        } 
+        else {
+            setStart(Start - finalTv), setFinalTv(FinalTv - finalTv), setPage(Page - 1)
         }
     }
 
