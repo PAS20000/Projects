@@ -22,7 +22,7 @@ export default function Contact() {
             bgDark:'blue.400',
         },
         {
-            href:'https://github.com/PAS19',
+            href:'https://github.com/PS200000',
             icon:<FaGithub size={'28px'}/>,
             text:'GitHub',
             bgLight:'purple',
