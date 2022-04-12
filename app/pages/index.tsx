@@ -117,7 +117,7 @@ type Repos = {
 
 export default function Home({ repos }: Repos) {
     const { width } = useResponsive()
-    const { backPage, Page, nextPage, Start, FinalTv, FinalDesktop, FinalCell } = useStaticPagination(width, 3, 2, 1)
+    const { backPage, Page, nextPage, Start, FinalTv, FinalDesktop, FinalCell } = useStaticPagination(width, 4, 2, 1)
     
     function Final(): number {
         if (width > 500 && width <= 1300) {
