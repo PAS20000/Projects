@@ -144,7 +144,14 @@ export default function Home({ repos }: Repos) {
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
-                    <Button key={index} colorScheme={currentPage === pg ? useColorModeValue('purple','twitter'):'gray'} onClick={() => ExactPage(pg)} ml={2} mr={2}>
+                    <Button key={index} 
+                        colorScheme={currentPage === pg ? useColorModeValue('purple','twitter'):'gray'} 
+                        onClick={() => ExactPage(pg)} 
+                        ml={2} 
+                        mr={2}
+                        borderRadius={'50%'}
+                        p={5}
+                    >
                         {pg}
                     </Button>)
                     }
