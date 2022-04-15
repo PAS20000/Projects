@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import { Box, Button, SimpleGrid, Tag, useColorModeValue } from '@chakra-ui/react'
+import { Box, Button, Center, SimpleGrid, Tag, useColorModeValue } from '@chakra-ui/react'
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 import Nav from '../src/components/Nav/Nav'
 import Footer from '../src/components/Footer/Footer'
@@ -139,8 +139,8 @@ export default function Home({ repos }: Repos) {
                         <RepoCard repository={repo} key={repo.id} />
                     )}
                 </SimpleGrid>
-                <Box display={'flex'} justifyContent={'center'} mt={3}>
-                    <Button onClick={ReturnPage} colorScheme={useColorModeValue('purple','twitter')} borderRadius={'50%'}>
+                <Center mt={3}>
+                    <Button onClick={ReturnPage} colorScheme={useColorModeValue('purple','blue')} borderRadius={'50%'}>
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
@@ -158,7 +158,7 @@ export default function Home({ repos }: Repos) {
                     <Button onClick={NextPage} colorScheme={useColorModeValue('purple','twitter')}  borderRadius={'50%'}>
                         <ChevronRightIcon/>
                     </Button>
-                </Box>
+                </Center>
                 <SimpleGrid columns={{base:1, md:3, xl:3}} spacing={3} mt={'20'}>
                     <Contact />
                     <AboutMeCard />
