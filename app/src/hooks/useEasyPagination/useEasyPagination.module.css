@@ -1,0 +1,50 @@
+.default {
+    width:30px;
+    height:30px;
+    margin-left: 5px;
+}
+.default:hover {
+    transition: 1s;
+    color: #B794F4;
+}
+.disabled{
+    width:30px;
+    height:30px;
+    margin-left: 5px;
+    pointer-events: none;
+    color: transparent;
+}
+.select{
+    color: #B794F4;
+    width:30px;
+    height:30px;
+    margin-left: 5px;
+    pointer-events: none;
+}
+
+
+.orangeCircle {
+    margin-left: 5px;
+    background-color:orange;
+    border-radius:50%;
+    width:30px;
+    height:30px;
+}
+
+.orangeCircle:hover{
+    transition: 1s;
+    background-color: gray;
+}
+
+.redCircle {
+    background-color:red;
+    margin-left: 5px;
+    border-radius:50%;
+    width:30px;
+    height:30px;
+}
+
+.redCircle:hover{
+    transition: 1s;
+    background-color: gray;
+}
