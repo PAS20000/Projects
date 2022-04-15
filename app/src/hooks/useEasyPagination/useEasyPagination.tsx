@@ -301,8 +301,8 @@ if(CountPageLimit) {
         Pages,
         DeviceData,
         DeviceLastPage,
-        NextPage: () => NextPage(),
-        ReturnPage:() => ReturnPage(),
+        NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
+        ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
         ExactPage:(pg:number) => ExactPage(pg),
         MainHtml,
     }

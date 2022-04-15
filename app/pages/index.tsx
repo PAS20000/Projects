@@ -138,7 +138,7 @@ export default function Home({ repos }: Repos) {
                     )}
                 </SimpleGrid>
                 <Box display={'flex'} justifyContent={'center'} mt={3}>
-                    <Button onClick={currentPage === 1 ? () => {}:ReturnPage} colorScheme={useColorModeValue('purple','twitter')} borderRadius={'50%'}>
+                    <Button onClick={ReturnPage} colorScheme={useColorModeValue('purple','twitter')} borderRadius={'50%'}>
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
@@ -146,7 +146,7 @@ export default function Home({ repos }: Repos) {
                         {pg}
                     </Button>)
                     }
-                    <Button onClick={currentPage === DeviceLastPage ? () => {}:NextPage} colorScheme={useColorModeValue('purple','twitter')}  borderRadius={'50%'}>
+                    <Button onClick={NextPage} colorScheme={useColorModeValue('purple','twitter')}  borderRadius={'50%'}>
                         <ChevronRightIcon/>
                     </Button>
                 </Box>
