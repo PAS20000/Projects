@@ -16,7 +16,7 @@ export const Device = ({
     TvWidth
 } : Devices) :IDevice => {
     const cell = CellWidth ? CellWidth:500
-    const desktop = DekstopWidth ? DekstopWidth:1300
+    const desktop = DekstopWidth ? DekstopWidth:1200
     const tv =  TvWidth ? TvWidth:1300
 
     if(width < cell){

@@ -26,7 +26,7 @@ export type States = {
 
 type Range = [100,200,300,400,500]
 
-type Styles = ['default','redCircle', 'orangeCircle']
+export type Styles = ['default','redCircle', 'orangeCircle', 'blueCircle', 'purpleCircle', 'greenCircle']
 
 export type Devices = {
     width:number
@@ -58,6 +58,37 @@ export interface IMainHtmlProps {
     Pages:Array<number>
 }
 
+/*type Style = {
+    color?:string
+    background?:string
+    width?:number | string
+    height?:number | string
+    margin?:number | string
+    marginLeft?:number | string
+    marginRight?:number | string
+    marginTop?:number | string
+    marginBotton?: number | string
+    padding?:number | string
+    hover?:StyleResume
+}
+type StyleResume = {
+    c?:string
+    bg?:string
+    w?:number | string
+    h?:number | string
+    m?:number | string
+    ml?:number | string
+    mr?:number | string
+    mt?:number | string
+    mb?:number | string
+    p?:number | string
+}
+
+export type classNames = {
+    Buttons:Style | StyleResume
+    PagesCard:Style | StyleResume
+}
+*/
 export interface IProps {
     data:Array<any>
     ShowItemsOnMobile:number

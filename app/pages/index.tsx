@@ -118,9 +118,11 @@ export default function Home({ repos }: Repos) {
    
     const {DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage} = useEasyPagination({
         data:repos,
-        sliceCell:1,
-        sliceDesktop:2,
-        sliceTv:3
+        ShowItemsOnDesktop:3,
+        ShowItemsOnMobile:1,
+        ShowItemsOnTv:3,
+        CountPages:true,
+
     })
     
     return(

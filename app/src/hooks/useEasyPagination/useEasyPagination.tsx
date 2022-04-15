@@ -78,6 +78,7 @@ if(CountPageLimit) {
                 }
 
             })(DeviceDependecy);
+
     }, [currentPage])
 }
     
@@ -88,7 +89,7 @@ if(CountPageLimit) {
             const device = Device['device']
             if(device === 'cell' && existWidth ){
 
-                for ( let count = 1; count - 1 < existCountSalt(CountPageLimit, Device ); count++) {
+                for ( let count = 1; count - 1 < existCountSalt(CountPageLimit, Device); count++) {
                     setPages(prev => [...prev,count])
                 }
             }
@@ -106,6 +107,7 @@ if(CountPageLimit) {
                 }
                
             }
+
         })(DeviceDependecy);
         
     }, [width])
@@ -123,7 +125,8 @@ if(CountPageLimit) {
         NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
         ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
         ExactPage:(pg:number) => ExactPage(pg),
-        MainHtml:MainHtml({
+        MainHtml:MainHtml(
+        {
             CountPages,
             Pages,
             arrowWeight,
@@ -133,9 +136,9 @@ if(CountPageLimit) {
             DeviceData,
             DeviceName,
             DeviceSlice,
-            NextPage, 
-            ReturnPage, 
-            ExactPage, 
+            NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
+            ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
+            ExactPage:(pg:number) => ExactPage(pg), 
             DeviceLastPage
         })
     }

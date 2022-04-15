@@ -1,12 +1,13 @@
+import { CssInject } from '../functions/CssInJect'
 import { IMainFactory, IMainHtmlProps } from '../useEasyPagination.types'
-import css from './MainHtml.module.css'
 
 const Arrows = {
     right:{100:'🡢',200:'🡪', 300:'🡲', 400:'🡺',500:'🢂'},
     left: {100:'🡠',200:'🡨', 300:'🡰', 400:'🡸', 500:'🢀'}
 }
 
-export const MainHtml = ({
+export const MainHtml = (
+{
     currentPage, 
     classStyle, 
     arrowWeight, 
@@ -21,16 +22,19 @@ export const MainHtml = ({
     DeviceSlice,
 }:IMainFactory) => {
 
+    const {  Buttons, PagesCard } = CssInject(classStyle, currentPage)
+
     return(
        <div>
-           <button id={'Breturn'} name={'b'} onClick={() => ReturnPage()} className={currentPage === 1 ? css['disabled']: css[classStyle ?? 'default']}>
+           <button style={{background:'red'}}></button>
+           <button id={'Breturn'} name={'b'} onClick={() => ReturnPage()} className={Buttons}>
                <span>
                    {Arrows.left[arrowWeight ?? 100]}
                </span>
            </button>
            {!CountPages ?
                <span>
-                   <span className={css['select']}>
+                   <span className={PagesCard}>
                        {currentPage}
                    </span>
                    <span>
@@ -39,11 +43,11 @@ export const MainHtml = ({
                </span>
                :
                Pages.map((pg, index) => 
-               <button key={index} className={currentPage === pg  ? css['select']:css['default']} onClick={() => ExactPage(pg)}>
+               <button id={'pages'} key={index} className={CssInject(classStyle, currentPage, pg).PagesCard} onClick={() => ExactPage(pg)}>
                    {pg}
                </button>)
            }
-           <button id={'Bnext'} name={'buttons'} onClick={() => NextPage()} className={currentPage === DeviceLastPage ? css['disabled']:css[classStyle ?? 'default']}>
+           <button id={'Bnext'} name={'buttons'} onClick={() => NextPage()} className={Buttons}>
                <span>
                    {Arrows.right[arrowWeight ?? 100]}
                </span>
