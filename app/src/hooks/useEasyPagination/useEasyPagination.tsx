@@ -256,7 +256,7 @@ if(CountPageLimit) {
         }
     }
 
-    const { DeviceData, DeviceLastPage, DeviceName, DeviceSlice, NextPage, ReturnPage, ExactPage } = MainFactory(Device())
+    const { DeviceData, DeviceLastPage, NextPage, ReturnPage, ExactPage } = MainFactory(Device())
 
     
 
@@ -294,13 +294,9 @@ if(CountPageLimit) {
 
     return {
         Result:MainFactory(Device()),
-        DeviceName,
-        DeviceSlice,
-        Start, 
         currentPage,
         Pages,
         DeviceData,
-        DeviceLastPage,
         NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
         ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
         ExactPage:(pg:number) => ExactPage(pg),

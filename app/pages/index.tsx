@@ -116,7 +116,7 @@ type Repos = {
 
 export default function Home({ repos }: Repos) {
    
-    const {DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage, DeviceLastPage} = useEasyPagination({
+    const {DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage} = useEasyPagination({
         data:repos,
         sliceCell:1,
         sliceDesktop:2,
