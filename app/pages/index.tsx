@@ -10,6 +10,7 @@ import NextHead from '../src/components/NextHead/NextHead'
 import RepoCard from '../src/components/Cards/RepoCard'
 import { axiosConfig } from '../src/utils/axiosConfig'
 import useEasyPagination from '../src/hooks/useEasyPagination/useEasyPagination'
+import { useEffect, useState } from 'react'
 
 
 
@@ -115,16 +116,17 @@ type Repos = {
 
 
 export default function Home({ repos }: Repos) {
-   
-    const {DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage} = useEasyPagination({
+    const colorMode = useColorModeValue('purple','twitter')
+    
+    const { DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage } = useEasyPagination({
         data:repos,
-        ShowItemsOnDesktop:3,
+        ShowItemsOnDesktop:2,
         ShowItemsOnMobile:1,
         ShowItemsOnTv:3,
         CountPages:true,
-
     })
     
+
     return(
         <Box as={'div'}>
             <NextHead title={'@PAS | HOME'} 
@@ -140,22 +142,15 @@ export default function Home({ repos }: Repos) {
                     )}
                 </SimpleGrid>
                 <Center mt={3}>
-                    <Button onClick={ReturnPage} colorScheme={useColorModeValue('purple','blue')} borderRadius={'50%'}>
+                    <Button onClick={ReturnPage} colorScheme={colorMode} borderRadius={'50%'}>
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
-                    <Button key={index} 
-                        colorScheme={currentPage === pg ? useColorModeValue('purple','twitter'):'gray'} 
-                        onClick={() => ExactPage(pg)} 
-                        ml={2} 
-                        mr={2}
-                        borderRadius={'50%'}
-                        p={5}
-                    >
-                        {pg}
-                    </Button>)
+                        <Button id={'pages'} key={index} onClick={() => ExactPage(pg)} colorScheme={currentPage === pg ? colorMode:'gray'} borderRadius={50} m={1}>
+                            {pg}
+                        </Button>)
                     }
-                    <Button onClick={NextPage} colorScheme={useColorModeValue('purple','twitter')}  borderRadius={'50%'}>
+                    <Button onClick={NextPage} colorScheme={colorMode}  borderRadius={'50%'}>
                         <ChevronRightIcon/>
                     </Button>
                 </Center>
