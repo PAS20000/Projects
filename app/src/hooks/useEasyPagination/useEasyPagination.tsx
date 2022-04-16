@@ -120,21 +120,21 @@ if(CountPageLimit) {
         NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
         ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
         ExactPage:(pg:number) => ExactPage(pg),
-        MainHtml:MainHtml(
-        {
-            CountPages,
-            Pages,
-            arrowWeight,
-            classStyle,
-            currentPage
-        }, {
-            DeviceData,
-            DeviceName,
-            DeviceSlice,
-            NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
-            ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
-            ExactPage:(pg:number) => ExactPage(pg), 
-            DeviceLastPage
-        })
+        MainHtml:() => MainHtml(
+                {
+                    CountPages,
+                    Pages,
+                    arrowWeight,
+                    classStyle,
+                    currentPage
+                }, {
+                    DeviceData,
+                    DeviceName,
+                    DeviceSlice,
+                    NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
+                    ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
+                    ExactPage:(pg:number) => ExactPage(pg), 
+                    DeviceLastPage
+                })
     }
 }
