@@ -115,7 +115,7 @@ if(CountPageLimit) {
     return {
         Result:MainFactory(StateDependency, Device(DeviceExecuteDependecy)),
         currentPage,
-        Pages:[...Pages],
+        Pages,
         DeviceData,
         NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
         ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
