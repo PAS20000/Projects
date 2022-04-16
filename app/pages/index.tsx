@@ -117,7 +117,7 @@ type Repos = {
 export default function Home({ repos }: Repos) {
     const colorMode = useColorModeValue('purple','twitter')
     
-    const { DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage } = useEasyPagination({
+    const { DeviceData, NextPage, ReturnPage, ExactPage, Pages, currentPage, MainHtml } = useEasyPagination({
         data:repos,
         ShowItemsOnDesktop:2,
         ShowItemsOnMobile:1,
@@ -141,7 +141,7 @@ export default function Home({ repos }: Repos) {
                     )}
                 </SimpleGrid>
                 <Center mt={3}>
-                    <Button onClick={ReturnPage} colorScheme={colorMode} borderRadius={'50%'}>
+                    {/*<Button onClick={ReturnPage} colorScheme={colorMode} borderRadius={'50%'}>
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
@@ -151,7 +151,8 @@ export default function Home({ repos }: Repos) {
                     }
                     <Button onClick={NextPage} colorScheme={colorMode}  borderRadius={'50%'}>
                         <ChevronRightIcon/>
-                    </Button>
+                    </Button>*/}
+                    <MainHtml />
                 </Center>
                 <SimpleGrid columns={{base:1, md:3, xl:3}} spacing={3} mt={'20'}>
                     <Contact />
