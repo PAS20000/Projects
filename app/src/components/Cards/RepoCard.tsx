@@ -1,6 +1,6 @@
 import { Box, Container, Flex, Heading, Image, Link, Spinner, Tag, TagLabel, Text, useColorModeValue, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { IoIosRocket } from 'react-icons/io';
 import { BiCodeAlt, BiImage } from 'react-icons/bi';
 import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
@@ -148,28 +148,28 @@ export default function RepoCard({ repository }: Repo) {
         'Content-Type': 'application/json'
     }
 }
-
-    useEffect(() => {
-        const data = async () => {
-            try {
-                const statusDeploy = await axiosConfig(`repos/PS200000/${repository?.name}/deployments`)
-                const urls = statusDeploy.data.map(url => url.statuses_url)
-                const verify = await axios(`${urls[0]}`, header)
-                const stars = await axiosConfig(`repos/PS200000/${repository?.name}/stargazers`)
-                if(!stars){
-                return toast({
-                    title:'Github Error',
-                    description:'Could not load information from github. Please reload the page',
-                    status:'error',
-                    isClosable:true,
-                })}
-                setStars(stars.data.length)
-                setStatusDeploy(verify.data[0].state)
-                setLoad(false)
-            } catch (e) {
-                setLoad(false)
-            }
+const data = async () => {
+    try {
+        const statusDeploy = await axiosConfig(`repos/PS200000/${repository?.name}/deployments`)
+        const urls = statusDeploy.data.map(url => url.statuses_url)
+        const verify = await axios(`${urls[0]}`, header)
+        const stars = await axiosConfig(`repos/PS200000/${repository?.name}/stargazers`)
+        if(!stars) {
+        return toast({
+                title:'Github Error',
+                description:'Could not load information from github. Please reload the page',
+                status:'error',
+                isClosable:true,
+            })
         }
+        setStars(stars.data.length)
+        setStatusDeploy(verify.data[0].state)
+        setLoad(false)
+    } catch (e) {
+        setLoad(false)
+    }
+}
+    useMemo(() => {
         data()
     }, [])
 

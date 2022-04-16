@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import { Box, Button, Center, SimpleGrid, Tag, useColorModeValue } from '@chakra-ui/react'
+import { Box, Button, Center, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
 import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons'
 import Nav from '../src/components/Nav/Nav'
 import Footer from '../src/components/Footer/Footer'
@@ -10,7 +10,6 @@ import NextHead from '../src/components/NextHead/NextHead'
 import RepoCard from '../src/components/Cards/RepoCard'
 import { axiosConfig } from '../src/utils/axiosConfig'
 import useEasyPagination from '../src/hooks/useEasyPagination/useEasyPagination'
-import { useEffect, useState } from 'react'
 
 
 
@@ -146,7 +145,7 @@ export default function Home({ repos }: Repos) {
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
-                        <Button id={'pages'} key={index} onClick={() => ExactPage(pg)} colorScheme={currentPage === pg ? colorMode:'gray'} borderRadius={50} m={1}>
+                        <Button id={'pages'} key={index} onClick={() => ExactPage(pg)} colorScheme={currentPage === pg ? colorMode:'gray'} borderRadius={50} m={2}>
                             {pg}
                         </Button>)
                     }
