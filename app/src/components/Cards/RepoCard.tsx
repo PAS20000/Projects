@@ -148,6 +148,7 @@ export default function RepoCard({ repository }: Repo) {
         'Content-Type': 'application/json'
     }
 }
+
 const data = async () => {
     try {
         const statusDeploy = await axiosConfig(`repos/PS200000/${repository?.name}/deployments`)
