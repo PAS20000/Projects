@@ -141,7 +141,7 @@ export default function Home({ repos }: Repos) {
                     )}
                 </SimpleGrid>
                 <Center mt={3}>
-                    {/*<Button onClick={ReturnPage} colorScheme={colorMode} borderRadius={'50%'}>
+                    <Button onClick={ReturnPage} colorScheme={colorMode} borderRadius={'50%'}>
                         <ChevronLeftIcon/>
                     </Button>
                     {Pages.map((pg, index) => 
@@ -151,8 +151,7 @@ export default function Home({ repos }: Repos) {
                     }
                     <Button onClick={NextPage} colorScheme={colorMode}  borderRadius={'50%'}>
                         <ChevronRightIcon/>
-                    </Button>*/}
-                    <MainHtml />
+                    </Button>
                 </Center>
                 <SimpleGrid columns={{base:1, md:3, xl:3}} spacing={3} mt={'20'}>
                     <Contact />
