@@ -4,6 +4,6 @@ export const axiosConfig = axios.create({
     baseURL:'https://api.github.com/',
     headers:{
         'Content-Type': 'application/json',
-         authorization: 'token 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' //public repos key
+         'authorization': process.env.GIT_TOKEN //public repos key
     }
 })
