@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CssInject } from '../functions/CssInject'
 import { IMainFactory, IMainHtmlProps } from '../useEasyPagination.types'
+import CountPagesTag from './Tags/CountPagesTag'
 
 const Arrows = {
     right:{100:'🡢',200:'🡪', 300:'🡲', 400:'🡺',500:'🢂'},
@@ -44,16 +45,22 @@ export const MainHtml = (
                    </span>
                </span>
                :
-               Pages.map((pg, index) => 
-               <button id={'pages'} key={index} className={CssInject(classStyle, currentPage, pg).PagesCard} onClick={() => ExactPage(pg)}>
-                   {pg}
-               </button>)
+               Pages.map((pg, index) =>
+
+                    <button id={'pages'} key={index} className={CssInject(classStyle, currentPage, pg).PagesCard} onClick={() => ExactPage(pg)}>
+                        {pg}
+                    </button>
+               )
            }
            <button id={'Bnext'} name={'buttons'} onClick={() => NextPage()} className={Buttons}>
                <span>
                    {Arrows.right[arrowWeight ?? 100]}
                </span>
            </button>
+          <CountPagesTag 
+            DeviceLastPage={DeviceLastPage} 
+            currentPage={currentPage}
+         />
        </div>
    )
 }

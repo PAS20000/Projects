@@ -69,9 +69,9 @@ if(CountPageLimit) {
     useMemo(() => {
         
             (function(Device){
-               
-                if(currentPage > existCountSalt(CountPageLimit, Device)){
-                    setPages(prev => prev.includes(currentPage) ? [...Pages]:[...Pages, currentPage])
+                
+                if(Pages.includes(1)){
+                    setPages(prev => prev.includes(currentPage) ? Pages:[...Pages, currentPage])
                 }
 
             })(Device(DeviceExecuteDependecy));
@@ -84,25 +84,11 @@ if(CountPageLimit) {
         (function(Device){
             const existWidth = width !== 0
             const device = Device['device']
-            if(device === 'cell' && existWidth ){
-
+           
+            if(existWidth && device){
                 for ( let count = 1; count - 1 < existCountSalt(CountPageLimit, Device); count++) {
                     setPages(prev => [...prev,count])
                 }
-            }
-            if(device === 'desktop' && existWidth){
-               
-                for ( let count = 1; count - 1 < existCountSalt(CountPageLimit, Device); count++) {
-                    setPages(prev => [...prev,count])
-                }
-                
-            } 
-            if(device === 'tv'&& existWidth) {
-
-                for ( let count = 1; count - 1 < existCountSalt(CountPageLimit, Device); count++) {
-                    setPages(prev => [...prev,count])
-                }
-               
             }
 
         })(Device(DeviceExecuteDependecy));
@@ -117,6 +103,7 @@ if(CountPageLimit) {
         currentPage,
         Pages,
         DeviceData,
+        DeviceLastPage,
         NextPage: () => currentPage === DeviceLastPage ? () => {}:NextPage(),
         ReturnPage:() => currentPage === 1 ? () => {}:ReturnPage(),
         ExactPage:(pg:number) => ExactPage(pg),
