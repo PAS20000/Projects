@@ -36,7 +36,7 @@ export default function Contact() {
             bgDark:'linear-gradient( #f94040, #ff57ff);',
         },
         {
-            href:'https://api.whatsapp.com/send?phone=5551989927403',
+            href:'https://api.whatsapp.com/send?phone=5551986868922',
             icon:<FaWhatsapp size={'28px'}/>,
             text:'Whatsapp',
             bgLight:'green',
